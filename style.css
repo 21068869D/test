@@ -88,3 +88,41 @@ nav a:hover::before{
     display: inline-block;
     padding: 1rem;
 }
+.parallax-1, .parallax-2, .parallax-3, .parallax-4{
+    height: 100%;
+    position: relative;
+    background-attachment:scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    padding: 5rem;
+    
+}
+.parallax-3{
+    background-image: url(assets/bg3.jpg);
+    
+}
+.signupform{
+    margin-top: 50px;
+    width: 450px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    border-radius: 10px;
+}
+
+.signupform h2{
+    padding-bottom: 3rem;
+}
+
+.signup-item{
+    padding: 10px;
+}
+
+.space{
+    padding: 3rem;
+}
