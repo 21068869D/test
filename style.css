@@ -116,13 +116,32 @@ nav a:hover::before{
 }
 
 .signupform h2{
-    padding-bottom: 3rem;
+    font-size: 35px;
+    padding-bottom: 1rem;
+}
+.signupform p{
+    font-size: 20px;
+
+}
+
+.signupform a{
+    text-decoration: none;
+}
+.signupform a:hover{
+    color: rgb(229, 232, 235);
 }
 
 .signup-item{
     padding: 10px;
 }
-
+.signup-btn{
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+}
 .space{
     padding: 3rem;
 }
