@@ -99,6 +99,15 @@ nav a:hover::before{
     padding: 5rem;
     
 }
+.parallax-1{
+    background-image: url(assets/bg1.jpg);
+
+}
+
+.parallax-2{
+    background-image: url(assets/bg2.jpg);
+    
+}
 .parallax-3{
     background-image: url(assets/bg3.jpg);
     
@@ -106,7 +115,7 @@ nav a:hover::before{
 .signupform{
     margin-top: 50px;
     width: 450px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(83, 82, 82, 0.7);
     padding: 5rem;
     text-align: center;
     margin: auto;
@@ -114,7 +123,6 @@ nav a:hover::before{
     color: white;
     border-radius: 10px;
 }
-
 .signupform h2{
     font-size: 35px;
     padding-bottom: 1rem;
@@ -142,6 +150,46 @@ nav a:hover::before{
     background-color: rgb(32, 129, 226);
     border: 1px solid rgb(32, 129, 226);
 }
+
+.loginform{
+    margin-top: 50px;
+    width: 450px;
+    background: rgba(83, 82, 82, 0.7);
+    padding: 5rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    border-radius: 10px;
+}
+.loginform h2{
+    font-size: 35px;
+    padding-bottom: 1rem;
+}
+.loginform p{
+    font-size: 20px;
+
+}
+
+.loginform a{
+    text-decoration: none;
+}
+.loginform a:hover{
+    color: rgb(229, 232, 235);
+}
+
+.login-item{
+    padding: 10px;
+}
+.login-btn{
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+}
+
 .space{
     padding: 3rem;
 }

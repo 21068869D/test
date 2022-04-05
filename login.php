@@ -9,7 +9,7 @@ include_once 'header.php';
     <body style="background-color: rgb(32, 34, 37);">
         <div class="parallax-3">
             <div class="space"></div>
-            <section  class="signupform">
+            <section  class="loginform">
                 <h2>Login</h2>
                 <p>Please fill in your credentials to login.</p>
 
@@ -21,23 +21,23 @@ include_once 'header.php';
                 ?>
 
                 <form action="" method="post">
-                    <div class="signup-item">
+                    <div class="login-item">
                         <label>Username</label>
                         <input type="text" name="username" class="form-control ">
                         <span class="invalid-feedback"></span>
                     </div>
-                    <div class="signup-item">
+                    <div class="login-item">
                         <label>Password</label>
                         <input type="password" name="password" class="form-control ">
                         <span class="invalid-feedback"></span>
                     </div>
-                    <div class="signup-item">
+                    <div class="login-item">
                         <div>
                             <input type="checkbox" value="Remember me" name="remember_me_checkbox" />
                             <label for="remember_me_checkbox">Remember Me</label>
                             <br><br>
                         </div>
-                        <input type="submit" class="signup-btn" value="Login">
+                        <input type="submit" class="btn" value="Login">
                     </div>
 
                     <div class="notroboot-item">
@@ -45,7 +45,7 @@ include_once 'header.php';
                             <?php
                             /*
                                 require_once('recaptchalib.php');
-                                $publickey = "your_public_key"; // you got this from the signup page
+                                $publickey = "your_public_key"; // you got this from the login page
                                 echo recaptcha_get_html($publickey);*/
                             ?>
 
@@ -69,14 +69,14 @@ include_once 'header.php';
     <body  style="background-color: rgb(32, 34, 37);">
         <div class="parallax-3">
             <div class="space"></div>
-                <section class="signupform">
+                <section class="loginform">
                         <h2>Log in</h2>
                         <form action="" method="post">
-                            <div class="signup-item">
+                            <div class="login-item">
                                 <label for="uid">Username:<br></label>
                                 <input type="text" name="uid" placeholder="username" required>
                             </div>
-                            <div class="signup-item">
+                            <div class="login-item">
                                 <label for="password">Password: <br></label>
                                 <input type="password" name="pwd" placeholder="Password" required>
                             </div>
