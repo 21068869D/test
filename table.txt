@@ -1,0 +1,17 @@
+CREATE TABLE user(
+    username VARCHAR(40) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    profile_image VARCHAR(255) NOT NULL,
+    PRIMARY KEY (username)
+);
+
+CREATE TABLE nftimage(
+    hash_image VARCHAR(255) NOT NULL,
+    owner VARCHAR(40) NOT NULL,
+    price VARCHAR(40) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    PRIMARY KEY (hash_image),
+    FOREIGN KEY (owner) REFERENCES user(username)
+);
