@@ -4,10 +4,11 @@ include_once 'header.php';
 
 <html>
 <head>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 <body style="background-color: rgb(32, 34, 37);">
 
@@ -46,12 +47,13 @@ include_once 'header.php';
                     <label for="image">Please upload a profile image </label>
                     <input type="file" name="profileimg">
                 </div>
+                <br>
+                <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb"></div>
+                <br>
                 <div>
 
                     <input type="submit" class="btn btn-primary" value="Submit">
                     <input type="reset" class="btn btn-secondary ml-2" value="Reset">
-                    <!-- <button class="btn-reg" type="reset" name="reset">Reset</button>
-                    <button class="btn-reg" type="submit" name="submit">Sign Up</button> -->
                 </div>
                 
             </form>
