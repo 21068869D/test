@@ -4,17 +4,19 @@ include_once 'header.php';
 
 <html>
 <head>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 <body style="background-color: rgb(32, 34, 37);">
 
 <div class="parallax-2">
 
     <section class="signupform">
-            <h2>Signup</h2>                <div>
+            <h2>Signup</h2>                
+            <div>
 
             </div>
            
@@ -23,38 +25,39 @@ include_once 'header.php';
                 
                 <div class="signup-item">
                     <label for="uid">Username </label>
-                    <input type="username" name="uid" placeholder="username" required>
+                    <input type="username" name="uid" class="form-control" placeholder="Username" required>
                 </div>
             
                 <div class="signup-item">
                     <label for="email">E-mail </label>
-                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail" required>
                 </div>
 
                 <div class="signup-item">
                     <label for="password">Password <br></label>
-                    <input type="password" name="pwd" placeholder="Password" required>
+                    <input type="password" name="pwd" class="form-control" placeholder="Password" required>
                 </div>
 
                 <div class="signup-item">
                     <label for="repeatpwd">Confirm password </label>
-                    <input type="password" name="repeatpwd" placeholder="re-enter password" required>
+                    <input type="password" name="repeatpwd" class="form-control" placeholder="Confirm password" required>
                 </div>
                 
                 <div class="signup-item">
                     <label for="image">Please upload a profile image </label>
                     <input type="file" name="profileimg">
                 </div>
+                <br>
+                <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb"></div>
+                <br>
                 <div>
 
                     <input type="submit" class="btn btn-primary" value="Submit">
                     <input type="reset" class="btn btn-secondary ml-2" value="Reset">
-                    <!-- <button class="btn-reg" type="reset" name="reset">Reset</button>
-                    <button class="btn-reg" type="submit" name="submit">Sign Up</button> -->
                 </div>
                 
             </form>
-            <div class="space"></div>
+
         <?php
                 if(isset($_GET["error"])){
                 if($_GET["error"] == "passwordmismatch"){
