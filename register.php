@@ -14,7 +14,8 @@ include_once 'header.php';
 <div class="parallax-2">
 
     <section class="signupform">
-            <h2>Signup</h2>                <div>
+            <h2>Signup</h2>                
+            <div>
 
             </div>
            
@@ -23,22 +24,22 @@ include_once 'header.php';
                 
                 <div class="signup-item">
                     <label for="uid">Username </label>
-                    <input type="username" name="uid" placeholder="username" required>
+                    <input type="username" name="uid" class="form-control" placeholder="Username" required>
                 </div>
             
                 <div class="signup-item">
                     <label for="email">E-mail </label>
-                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail" required>
                 </div>
 
                 <div class="signup-item">
                     <label for="password">Password <br></label>
-                    <input type="password" name="pwd" placeholder="Password" required>
+                    <input type="password" name="pwd" class="form-control" placeholder="Password" required>
                 </div>
 
                 <div class="signup-item">
                     <label for="repeatpwd">Confirm password </label>
-                    <input type="password" name="repeatpwd" placeholder="re-enter password" required>
+                    <input type="password" name="repeatpwd" class="form-control" placeholder="Confirm password" required>
                 </div>
                 
                 <div class="signup-item">
@@ -54,7 +55,7 @@ include_once 'header.php';
                 </div>
                 
             </form>
-            <div class="space"></div>
+
         <?php
                 if(isset($_GET["error"])){
                 if($_GET["error"] == "passwordmismatch"){

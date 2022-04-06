@@ -4,6 +4,7 @@ include_once 'header.php';
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
 
     <body style="background-color: rgb(32, 34, 37);">
@@ -23,12 +24,12 @@ include_once 'header.php';
                 <form action="" method="post">
                     <div class="login-item">
                         <label>Username</label>
-                        <input type="text" name="username" class="form-control ">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
                         <span class="invalid-feedback"></span>
                     </div>
                     <div class="login-item">
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control ">
+                        <input type="password" name="password" class="form-control"  placeholder="Password">
                         <span class="invalid-feedback"></span>
                     </div>
                     <div class="login-item">
@@ -37,7 +38,7 @@ include_once 'header.php';
                             <label for="remember_me_checkbox">Remember Me</label>
                             <br><br>
                         </div>
-                        <input type="submit" class="btn" value="Login">
+                        <input type="submit" class="login-btn" value="Login">
                     </div>
 
                     <div class="notroboot-item">
@@ -56,7 +57,7 @@ include_once 'header.php';
                         </div>
                     </div>
 
-                    <p>Haven’t register yet? <a href="register.php">Register your account</a></p>
+                    <p>Haven’t register yet?<br><a href="register.php">Register your account</a></p>
                 </form>
             </section>
             
