@@ -18,7 +18,7 @@ include_once 'header.php';
                 </div>
                 <div class="image-item">
                     <label for="image">Please upload NFT image:</label>
-                    <input type="file" name="profileimg">
+                    <input type="file" name="image">
                 </div>
                 <?php if(isset($_SESSION["useruid"])){
                     echo "<input type='hidden' name='useruid' value='". $_SESSION["useruid"] ."'";} ?>
