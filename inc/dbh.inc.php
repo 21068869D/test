@@ -1,9 +1,5 @@
 <?php
-
-$serverName = "localhost";
-$dBUsername = "root";
-$dBPassword = "";
-$dBName = "integratedproject";
+require_once (./config.php);
 
 $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 
