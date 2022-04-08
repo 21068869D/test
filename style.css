@@ -1,3 +1,4 @@
+/*header styling start(Bernard)*/
 .container{
     width: 80%;
     margin: 0 auto;
@@ -53,7 +54,9 @@ nav a:hover::before{
     width: 100%;
 }
 
+/*header styling end*/
 
+/*footer styling start(Bernard)*/
 .footer{
     padding: 3rem;
     background-color: whitesmoke;
@@ -88,6 +91,9 @@ nav a:hover::before{
     display: inline-block;
     padding: 1rem;
 }
+
+/*footer styling end*/
+
 .parallax-1, .parallax-2, .parallax-3, .parallax-4{
     height: 100%;
     position: relative;
@@ -243,3 +249,17 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+
+  /*about styling start(Bernard)*/
+  .aboutbox{
+    width: 450px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
+  /*about styling end*/

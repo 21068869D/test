@@ -12,7 +12,7 @@ include 'inc/dbh.inc.php';
         <link rel="stylesheet" href="style.css" type="text/css">
 
     </head>
-    <body>
+    <body style="background-color: rgb(32, 34, 37);">
         <header>
             <div class="container">
                 <img src="assets/logo.png" alt="logo" class="logo">
@@ -20,7 +20,7 @@ include 'inc/dbh.inc.php';
                     <ul>
                         <li><a href='index.php'>Home</a></li>
                         <li><a href="#">Browse</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href='about.php'>About</a></li>
                         <li><a href='login.php'>Login</a></li>
                         <li><a href='register.php'>Signup</a></li>
                     </ul>
