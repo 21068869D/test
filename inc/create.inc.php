@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
         header("location: ../signup.php?error=usernametaken");//change?
         exit();
     }
-    createUser($conn,$verify,$imagetitle,$useruid,$price,$target_file);
+    createNFTRecorc($conn,$verify,$imagetitle,$useruid,$price,$target_file);
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 }
 else{
