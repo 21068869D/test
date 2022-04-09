@@ -263,3 +263,49 @@ body, html {
     color: white;
 }
   /*about styling end*/
+
+/*card for NFT*/
+
+.card-c{
+    display: flex;
+}
+
+  .card{
+    background: white;
+    width: 220px;
+    height: 400px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.card-image{
+    background-color: aqua;
+    height: 300px;
+    margin-bottom: 15px;
+    background-size: cover;
+}
+
+.card h2{
+    padding: 10px;
+}
+
+.card a{
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.card:hover{
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.5s ease;
+}
+
+/*card styling end*/
+
+

@@ -13,11 +13,15 @@ include_once 'header.php';
             echo "<h1>Welcome to owner page, ".$uid."</h1><br>";
             echo " <div class='text-center'><a href='create.php'>+ Sell an NFT </a><br><br>Your NFTs</div><div class='space'></div>";
         }?>
-        <scetion class="card-c">
+        <scetion class="card-c"> <!--  Bernard: For flex container -->
             <?php foreach($query as $q){?>
-                <div class="card">
+                <div class="card-image">
+
+                <!-- Bernard: can try this, styling added-->
+                    <div class="card-image" style="background-image: url('<?php echo $q['path']?>');"></div> 
+
                     <h2><?php echo $q['title'] ?></h2>
-                    <p><br><?php echo "<img src=\"",$q['path'],"\""?></p> <!-- Bernard: try using class="card-image"-->
+                    <p><br><?php echo "<img src=\"",$q['path'],"\""?></p> 
                     <a href="nftdetail.php?id=<?php echo $q['Id'] ?>"> View</a>
                 </div><?php } ?>
             </section>
