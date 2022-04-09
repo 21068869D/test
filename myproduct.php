@@ -11,13 +11,13 @@ include_once 'header.php';
             $sql = "SELECT * FROM image where userUid = '$uid'";
             $query = mysqli_query($conn, $sql);
             echo "<h1>Welcome to owner page, ".$uid."</h1><br>";
-            echo " <div class='text-center'><a href='create.php'>+ Create a new job post</a><br><br>Your listed jobs</div><div class='space'></div>";
+            echo " <div class='text-center'><a href='create.php'>+ Sell an NFT </a><br><br>Your NFTs</div><div class='space'></div>";
         }?>
-        <scetion class="container">
+        <scetion class="card-c">
             <?php foreach($query as $q){?>
                 <div class="card">
                     <h2><?php echo $q['title'] ?></h2>
-                    <p><br><?php echo "<img src=\"",$q['path'],"\""?></p>
+                    <p><br><?php echo "<img src=\"",$q['path'],"\""?></p> <!-- Bernard: try using class="card-image"-->
                     <a href="nftdetail.php?id=<?php echo $q['Id'] ?>"> View</a>
                 </div><?php } ?>
             </section>
