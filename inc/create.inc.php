@@ -6,7 +6,7 @@ if(isset($_POST["submit"])){
     $useruid = $_POST["useruid"];
     
     $imageName = time() . '-' . $_FILES["image"]["name"];
-    $tmpdir = "/temp/";
+    $tmpdir = "../temp/";
     $target_dir = "../uploads/";
     $tmp_file = $tmpdir.basename($imageName);
     $target_file = $target_dir . basename($imageName);
