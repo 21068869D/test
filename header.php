@@ -22,11 +22,18 @@ include 'inc/dbh.inc.php';
                 <img src="assets/logo.png" alt="logo" class="logo">
                 <nav>
                     <ul>
+                        
                         <li><a href='index.php'>Home</a></li>
                         <li><a href="#">Browse</a></li>
                         <li><a href='about.php'>About</a></li>
+                        <?php if(isset($_SESSION["useruid"])){?>
+                            <li><a href='myproduct.php'>Your NFT</a></li>
+                            <li><a href='inc/logout.inc.php'>Logout</a></li>
+                        <?php }
+                        else{?>
                         <li><a href='login.php'>Login</a></li>
                         <li><a href='register.php'>Signup</a></li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>
