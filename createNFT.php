@@ -27,4 +27,7 @@ include_once 'header.php';
                 <button type="submit" name="create">Create</button>
             </form>
             <div class="space"></div>
-</html>
+
+<?php
+include_once 'footer.php';
+?>

@@ -2,10 +2,6 @@
 include_once 'header.php';
 ?>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
 
     <body style="background-color: rgb(32, 34, 37);">
         <div class="parallax-3">
@@ -63,9 +59,6 @@ include_once 'header.php';
             
         </div>
             
-            
-        
-    </body>
 <!--     
     <body  style="background-color: rgb(32, 34, 37);">
         <div class="parallax-3">
@@ -89,7 +82,6 @@ include_once 'header.php';
         </div>
 
     </body> -->
-</html>
 <?php
  include_once 'footer.php';
 ?>

@@ -31,6 +31,7 @@ include_once 'header.php';
     <div class="space"></div>    
 </div>
 </div>
-</body>
 
-</html>
+<?php
+include_once 'footer.php';
+?>

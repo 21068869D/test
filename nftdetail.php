@@ -1,6 +1,5 @@
 <?php
 include_once 'header.php';
-session_start();
 
 echo "<div class='parallax-4'>";
 
@@ -22,3 +21,7 @@ if(isset($_GET["id"])){
         </div>
 
     </div>
+
+<?php
+include_once 'footer.php';
+?>
