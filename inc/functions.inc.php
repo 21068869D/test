@@ -1,7 +1,7 @@
 <?php //half
 
 function pwdMatch($pwd, $repeatpwd){
-    $result;
+    //$result;
     if($pwd!==$repeatpwd){
         $result = true;
     }
@@ -37,8 +37,9 @@ function uidExists($conn, $username){
 
 
 
-function createUser($conn,$nickname,$email,$type,$username,$pwd,$target_file){
-    $sql = "INSERT INTO users (userName, userEmail, userType, userUid, userPwd, userImg) VALUES (?,?,?,?,?,?);";
+function createUser($conn,$username,$email,$pwd,$target_file){
+    //INSERT INTO `user`(`username`, `password`, `email`, `profile_image`) VALUES (?,?,?,?)
+    $sql = "INSERT INTO `user`(`username`, `password`, `email`, `profile_image`) VALUES (?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../signup.php?error=stmtfailed");
@@ -46,12 +47,13 @@ function createUser($conn,$nickname,$email,$type,$username,$pwd,$target_file){
     }
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt,"ssssss",$nickname, $email, $type, $username, $hashedPwd, $target_file);
+    mysqli_stmt_bind_param($stmt,"ssssss",$username,$email,$pwd,$target_file);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../signup.php?error=none");
     exit();
 }
+
 function createNFTRecorc($conn,$verify,$useruid,$price,$target_file,$imagetitle){//half
     $sql = "INSERT INTO nftimage (hash_image, owner, price, image, title) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
