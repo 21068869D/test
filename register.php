@@ -12,7 +12,7 @@ include_once 'header.php';
 
             </div>
            
-            <form action="inc/signup.inc.php" method="post" enctype="multipart/form-data">
+            <form action="inc/register.inc.php" method="post" enctype="multipart/form-data">
          
                 
                 <div class="signup-item">

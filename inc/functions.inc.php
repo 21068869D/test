@@ -37,19 +37,19 @@ function uidExists($conn, $username){
 
 
 
-function createUser($conn,$nickname,$email,$type,$username,$pwd,$target_file){
-    $sql = "INSERT INTO users (userName, userEmail, userType, userUid, userPwd, userImg) VALUES (?,?,?,?,?,?);";
+function createUser($conn,$email,$username,$pwd,$target_file){
+    $sql = "INSERT INTO users (userEmail, userUid, userPwd, userImg) VALUES (?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signup.php?error=stmtfailed");
+        header("location: ../register.php?error=stmtfailed");
         exit();
     }
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt,"ssssss",$nickname, $email, $type, $username, $hashedPwd, $target_file);
+    mysqli_stmt_bind_param($stmt,"ssss", $email, $username, $hashedPwd, $target_file);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
+    header("location: ../register.php?error=none");
     exit();
 }
 function createNFTRecorc($conn,$verify,$useruid,$price,$target_file,$imagetitle){//half
