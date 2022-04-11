@@ -35,6 +35,29 @@ function uidExists($conn, $username){
     mysqli_stmt_close($stmt);
 }
 
+function fileExists($conn, $verify){
+    $sql = "SELECT * FROM nftimage WHERE hash_image= ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../createNFT.php?error=stmtfailed");//change?
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt,"s",$verify);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($resultData)){
+        return $row;
+    }
+    else{
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
 
 
 function createUser($conn,$username,$email,$pwd,$target_file){

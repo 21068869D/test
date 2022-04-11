@@ -1,5 +1,37 @@
 <?php
 include_once 'header.php';
+
+
+$sql = "SELECT image FROM user WHERE username = ?";
+
+if ($stmt = mysqli_prepare($link, $sql)) {
+    // Bind variables to the prepared statement as parameters
+    mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+    // Set parameters
+    $param_username = $_SESSION["username"];
+
+    mysqli_stmt_execute($stmt);
+
+    //Getting the result
+    $res = mysqli_stmt_get_result($stmt);
+
+    $image = mysqli_fetch_row($res);
+
+    // Close statement
+    mysqli_stmt_close($stmt);
+}
+
+
+
+
+
+
+
+
+
+
+
 ?>
 <div class="img1"></div>
 

@@ -6,9 +6,9 @@ include_once 'header.php';
 <div class="parallax-1">
     <section>
         <?php
-        if(isset($_SESSION["useruid"])){
-            $uid = $_SESSION["useruid"];
-            $sql = "SELECT * FROM image where userUid = '$uid'";
+        if(isset($_SESSION["username"])){
+            $uid = $_SESSION["username"];
+            $sql = "SELECT * FROM nftimage where username = '$uid'";
             $query = mysqli_query($conn, $sql);
             echo "<h1>Welcome to owner page, ".$uid."</h1><br>";
             echo " <div class='text-center'><a href='create.php'>+ Sell an NFT </a><br><br>Your NFTs</div><div class='space'></div>";

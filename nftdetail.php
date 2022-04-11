@@ -21,7 +21,6 @@ if(isset($_GET["id"])){
         </div>
 
     </div>
-
 <?php
 include_once 'footer.php';
 ?>
