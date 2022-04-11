@@ -48,7 +48,6 @@ You can using any payment method for buy and sell the NFT art.
 <div class="img3"></div>
 
 <div style="height:50px;background-color:grey;font-size:36px">
-<a href='login.php'>Click here to login the system.</a>
 </div>
 
 
