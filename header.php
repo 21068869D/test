@@ -26,7 +26,7 @@ include 'inc/dbh.inc.php';
                         <li><a href='index.php'>Home</a></li>
                         <li><a href="#">Browse</a></li>
                         <li><a href='about.php'>About</a></li>
-                        <?php if(isset($_SESSION["useruid"])){?>
+                        <?php if(isset($_SESSION["username"])){?>
                             <li><a href='myproduct.php'>Your NFT</a></li>
                             <li><a href='inc/logout.inc.php'>Logout</a></li>
                         <?php }

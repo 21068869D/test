@@ -10,7 +10,7 @@
             <ul class="footer-list">
                 <li><a href='index.php'>Home</a></li>
                 <li><a href="#">Browse NFTs</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href='about.php'>Help</a></li>
                 <li><a href="#">Terms of service</a></li>
                 <li><a href="#">Privacy Policy</a></li>
             </ul>

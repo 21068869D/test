@@ -1,16 +1,17 @@
-<?php//half
+<?php  //half
 
 if(isset($_POST["create"])){
     $imagetitle = $_POST["imagetitle"];
     $price = $_POST["price"];
-    $useruid = $_POST["useruid"];
+    $useruid = $_POST["username"];
     
     $imageName = time() . '-' . $_FILES["image"]["name"];
     $tmpdir = "../temp/";
-    $target_dir = "./uploads/";
-    $move_file = "../uploads/";
+    $target_dir = "./upload/";
+    $move_file = "../upload/";
     $tmp_file = $tmpdir.basename($imageName);
     $target_file = $target_dir . basename($imageName);
+    $actual_file = $move_file . basename($imageName);
     
     
     move_uploaded_file($_FILES["image"]["tmp_name"], $tmp_file);
@@ -22,11 +23,13 @@ if(isset($_POST["create"])){
 
 
     if(fileExists($conn, $verify)!==false){
-        header("location: ../signup.php?error=usernametaken");//change?
+        header("location: ../create.php?error=fileexists");//change?
+        unlink($tmp_file);
         exit();
     }
     createNFTRecorc($conn,$verify,$imagetitle,$useruid,$price,$target_file);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    move_uploaded_file($_FILES["image"]["tmp_name"], $actual_file);
+    unlink($tmp_file);
 }
 else{
     header("location: ../create.php");
