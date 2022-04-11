@@ -2,7 +2,7 @@
 include_once 'header.php';
 
 // Include config file
-require_once 'inc\config.php';
+require_once 'inc/config.php';
 require_once 'inc\register.inc.php';
 
 // Define variables and initialize with empty values
@@ -21,7 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT username FROM user WHERE username = ?";
 
-        if($stmt = mysqli_prepare($link, $sql)){
+        try{
+		  if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -41,17 +42,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
+		  }
+		  mysqli_stmt_close($stmt);
+		  }catch(Exception $e){
+     	  // Close statement
+		   echo $e->getMessage(), "\n";
+		 }
+		  
         }
     }
     
-    print_r($_FILES["uploadImage"]);
+    /*print_r($_FILES["uploadImage"]);
     $FileName = $_FILES["uploadImage"]['name'];
     $FileType = $_FILES["uploadImage"]['type'];
     $FileData = file_get_contents($_FILES["uploadImage"]['tmp_name']);
-    
+    */
 
     $validation = empty($image_err);
     
@@ -135,15 +140,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_email = $email;
-            $param_image = $FileData;
-
-            $image_name = upload($param_image);
-            
-            print_r($image_name);
-            print("<br>");
-            print($image_name["name"]);
-
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_email, $image_name);
+            $param_image = $_FILES["uploadImage"];
+			//print("test456<br>");
+			//print_r($param_image);
+            $image_name = upload_img($param_image);
+            //print("test123<br>");
+            //print_r($image_name);
+            //print("<br>");
+            //print($image_name["name"]);
+			
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_email, $image_name["name"]);
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
@@ -160,7 +166,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Close connection
     mysqli_close($link);
-}
+
+
 ?>
 
 
