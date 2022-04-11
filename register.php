@@ -3,7 +3,7 @@ include_once 'header.php';
 
 // Include config file
 require_once 'inc/config.php';
-require_once 'inc\register.inc.php';
+require_once 'inc/register.inc.php';
 
 // Define variables and initialize with empty values
 $username = $password = $confirmpwd = $email = $image = "";
