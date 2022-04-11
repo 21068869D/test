@@ -145,7 +145,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
            
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-         
                 
                 <div class="signup-item">
                     <label for="username">Username </label>

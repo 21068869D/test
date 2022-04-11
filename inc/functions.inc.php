@@ -42,15 +42,15 @@ function createUser($conn,$username,$email,$pwd,$target_file){
     $sql = "INSERT INTO `user`(`username`, `password`, `email`, `profile_image`) VALUES (?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signup.php?error=stmtfailed");
+        header("location: ../register.php?error=stmtfailed");
         exit();
     }
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt,"ssssss",$username,$email,$pwd,$target_file);
+    mysqli_stmt_bind_param($stmt,"ssss",$username,$email,$pwd,$target_file);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
+    header("location: ../register.php?error=none");
     exit();
 }
 

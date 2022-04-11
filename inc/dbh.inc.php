@@ -10,4 +10,15 @@ if(!$conn){
 }
 */
 
+
+/*try {
+$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+}catch(){
+    die("Cannot connect to server, Reason: " . mysqli_connect_error());
+}
+^@rexluk Didnt work so I comment them for now - Bernard
+*/
+
+
+
 ?>

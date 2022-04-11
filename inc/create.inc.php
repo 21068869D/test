@@ -1,13 +1,14 @@
 <?php//half
 
-if(isset($_POST["submit"])){
+if(isset($_POST["create"])){
     $imagetitle = $_POST["imagetitle"];
     $price = $_POST["price"];
     $useruid = $_POST["useruid"];
     
     $imageName = time() . '-' . $_FILES["image"]["name"];
     $tmpdir = "../temp/";
-    $target_dir = "../uploads/";
+    $target_dir = "./uploads/";
+    $move_file = "../uploads/";
     $tmp_file = $tmpdir.basename($imageName);
     $target_file = $target_dir . basename($imageName);
     
