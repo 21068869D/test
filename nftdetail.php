@@ -5,7 +5,7 @@ echo "<div class='parallax-4'>";
 
 if(isset($_GET["id"])){
     $id = $_GET["id"];
-    $sql = "SELECT * FROM image where Id = '$id'";
+    $sql = "SELECT * FROM image where Id = '" . $id . "';";
     $query = mysqli_query($conn, $sql);
     $_SESSION['imageid'] = $id;
     foreach($query as $q){?>

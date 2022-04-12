@@ -2,7 +2,7 @@
 include_once 'header.php';
 
 
-$sql = "SELECT image FROM user WHERE username = ?";
+$sql = "SELECT profile_image FROM user WHERE username = ?";
 
 if ($stmt = mysqli_prepare($link, $sql)) {
     // Bind variables to the prepared statement as parameters
@@ -21,16 +21,6 @@ if ($stmt = mysqli_prepare($link, $sql)) {
     // Close statement
     mysqli_stmt_close($stmt);
 }
-
-
-
-
-
-
-
-
-
-
 
 ?>
 <div class="img1"></div>

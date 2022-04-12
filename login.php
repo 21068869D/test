@@ -1,12 +1,13 @@
 <?php
-
+include_once 'header.php';
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
     exit;
 }
 // Include config file
-require_once "inc\config.php";
+require_once "inc/config.php";
+require_once 'inc/functions.inc.php';
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -16,17 +17,17 @@ $username_err = $password_err = $login_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    if(empty(test_input($_POST["username"]))){
         $username_err = "Please enter username.";
     } else{
-        $username = trim($_POST["username"]);
+        $username = test_input($_POST["username"]);
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if(empty(test_input($_POST["password"]))){
         $password_err = "Please enter your password.";
     } else{
-        $password = trim($_POST["password"]);
+        $password = test_input($_POST["password"]);
     }
     
     // Validate credentials
@@ -84,8 +85,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 
-include_once 'header.php';
-
 
 ?>
 <html>
@@ -96,13 +95,6 @@ include_once 'header.php';
             <section  class="loginform">
                 <h2>Login</h2>
                 <p>Please fill in your credentials to login.</p>
-
-                <?php
-                /*
-                if (!empty($login_err)) {
-                    echo '<div class="alert alert-danger">' . $login_err . '</div>';
-                }*/
-                ?>
 
                 <form action="" method="post">
                     <div class="login-item">
@@ -115,6 +107,14 @@ include_once 'header.php';
                         <input type="password" name="password" class="form-control"  placeholder="Password">
                         <span class="invalid-feedback"></span>
                     </div>
+
+                    <div class="login-item">
+                        <br>
+                            <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb" style="margin-left: 10px" ></div>
+                        <span class="invalid-feedback"></span>
+                        <br>
+                    </div>
+
                     <div class="login-item">
                         <div>
                             <input type="checkbox" value="Remember me" name="remember_me_checkbox" />
@@ -143,29 +143,6 @@ include_once 'header.php';
             
         </div>
             
-<!--     
-    <body  style="background-color: rgb(32, 34, 37);">
-        <div class="parallax-3">
-            <div class="space"></div>
-                <section class="loginform">
-                        <h2>Log in</h2>
-                        <form action="" method="post">
-                            <div class="login-item">
-                                <label for="uid">Username:<br></label>
-                                <input type="text" name="uid" placeholder="username" required>
-                            </div>
-                            <div class="login-item">
-                                <label for="password">Password: <br></label>
-                                <input type="password" name="pwd" placeholder="Password" required>
-                            </div>
-                            <button class="btn-login" type="submit" name="submit">Log in</button>
-                        </form>
-                       
-                    </section>
-            <div class="space"></div>
-        </div>
-
-    </body> -->
 <?php
  include_once 'footer.php';
 ?>

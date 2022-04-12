@@ -4,15 +4,17 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     profile_image VARCHAR(255) NOT NULL,
+    UNIQUE (username),
     PRIMARY KEY (id,username)
 );
 
 CREATE TABLE nftimage(
+    nftid INT(100) AUTO_INCREMENT NOT NULL,
     hash_image VARCHAR(255) NOT NULL,
     owner VARCHAR(40) NOT NULL,
     price VARCHAR(40) NOT NULL,
     image VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
-    PRIMARY KEY (hash_image),
-    FOREIGN KEY (owner) REFERENCES user(username)
+    UNIQUE (hash_image),
+    PRIMARY KEY (nftid)
 );

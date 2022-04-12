@@ -1,5 +1,5 @@
 <?php  //half
-
+/*
 if(isset($_POST["create"])){
     $imagetitle = $_POST["imagetitle"];
     $price = $_POST["price"];
@@ -18,20 +18,56 @@ if(isset($_POST["create"])){
     $verify = hash_file('sha256', $tmp_file);
     
 
-    require_once 'dbh.inc.php';
+    require_once 'config.php';
     require_once 'functions.inc.php';
 
 
-    if(fileExists($conn, $verify)!==false){
+    if(fileExists($link, $verify)!==false){
         header("location: ../create.php?error=fileexists");//change?
         unlink($tmp_file);
         exit();
     }
-    createNFTRecorc($conn,$verify,$imagetitle,$useruid,$price,$target_file);
+    createNFTRecorc($link,$verify,$imagetitle,$useruid,$price,$target_file);
     move_uploaded_file($_FILES["image"]["tmp_name"], $actual_file);
     unlink($tmp_file);
 }
 else{
     header("location: ../create.php");
     exit();
+}*/
+?>
+
+<?php
+require_once 'config.php';
+
+function upload_temp_img($nft_image){
+    
+    $nftImageName = $nft_image["name"];
+    $target_dir = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/temp/";   //The path only for alex
+    $move_file = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/temp/" . basename($nftImageName); //The path only for alex
+    $target_file = "temp/".basename($nftImageName);
+    
+	if(is_writable($target_dir)){
+		move_uploaded_file($nft_image["tmp_name"],$move_file);
+		return $target_file;
+	}else
+    {
+        return "The directory cannot write.";
+    }
 }
+function upload_img($nft_image){
+    
+    $nftImageName = time().'-'.$nft_image["name"];
+    $target_dir = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/nft/";   //The path only for alex
+    $move_file = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/nft/" . basename($nftImageName); //The path only for alex
+    $target_file = "nft/".basename($nftImageName);
+	if(is_writable($target_dir)){
+		move_uploaded_file($nft_image["tmp_name"],$move_file);
+		return $target_file;
+	}else
+    {
+        return "The directory cannot write.";
+    }
+}
+
+?>

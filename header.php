@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'inc/dbh.inc.php';
+include 'inc/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +28,7 @@ include 'inc/dbh.inc.php';
                         <li><a href='about.php'>About</a></li>
                         <?php if(isset($_SESSION["username"])){?>
                             <li><a href='myproduct.php'>Your NFT</a></li>
+                            <li><a href='createNFT.php'>Create</a></li>
                             <li><a href='inc/logout.inc.php'>Logout</a></li>
                         <?php }
                         else{?>

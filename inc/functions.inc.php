@@ -1,5 +1,12 @@
 <?php //half
 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 function pwdMatch($pwd, $repeatpwd){
     //$result;
     if($pwd!==$repeatpwd){

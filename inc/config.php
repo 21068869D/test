@@ -1,10 +1,5 @@
 <?php
-/*
-$serverName = "localhost";
-$dBUsername = "root";
-$dBPassword = "";  //just random string,can use or change before demo
-$dBName = "security_project";
-*/
+
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');

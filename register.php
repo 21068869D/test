@@ -4,30 +4,30 @@ include_once 'header.php';
 // Include config file
 require_once 'inc/config.php';
 require_once 'inc/register.inc.php';
+require_once 'inc/functions.inc.php';
 
 // Define variables and initialize with empty values
 $username = $password = $confirmpwd = $email = $image = "";
 $username_err = $password_err = $confirmpwd_err = $email_err = $image_err = "";
- 
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
-    if(empty(trim($_POST["username"]))){
+    if(empty(test_input($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9]+$/', trim($_POST["username"]))){
+    } elseif(!preg_match('/^[a-zA-Z0-9]+$/', test_input($_POST["username"]))){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
         $sql = "SELECT username FROM user WHERE username = ?";
 
-        try{
-		  if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
             // Set parameters
-            $param_username = trim($_POST["username"]);
+            $param_username = test_input($_POST["username"]);
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -37,36 +37,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = "This username is already taken.";
                 } else{
-                    $username = trim($_POST["username"]);
+                    $username = test_input($_POST["username"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
 		  }
 		  mysqli_stmt_close($stmt);
-		  }catch(Exception $e){
-     	  // Close statement
-		   echo $e->getMessage(), "\n";
-		 }
 		  
         }
-    }
     
-    /*print_r($_FILES["uploadImage"]);
-    $FileName = $_FILES["uploadImage"]['name'];
-    $FileType = $_FILES["uploadImage"]['type'];
-    $FileData = file_get_contents($_FILES["uploadImage"]['tmp_name']);
-    */
-
     $validation = empty($image_err);
-    
-
-    $email = trim($_POST["email"]);
 
     // Validate email
-    if(empty(trim($_POST["email"]))){
+    if(empty(test_input($_POST["email"]))){
         $email_err = "Please enter a email.";
-    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    } elseif(!filter_var(test_input($_POST["email"]), FILTER_VALIDATE_EMAIL)){
         $email_err = "email invaild.";
     } else{
         // Prepare a select statement
@@ -77,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $param_email);
             
             // Set parameters
-            $param_email = trim($_POST["email"]);
+            $param_email = test_input($_POST["email"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -87,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $email_err = "This email is already taken.";
                 } else{
-                    $email = trim($_POST["email"]);
+                    $email = test_input($_POST["email"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -98,27 +84,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-
-
-
-
-
-
-
     // Validate password
-    if(empty(trim($_POST["password"]))){
+    if(empty(test_input($_POST["password"]))){
         $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 2){//要改翻6
+    } elseif(strlen(test_input($_POST["password"])) < 2){//要改翻6
         $password_err = "Password must have at least 6 characters.";
     } else{
-        $password = trim($_POST["password"]);
+        $password = test_input($_POST["password"]);
     }
     
     // Validate confirm password
-    if(empty(trim($_POST["confirmpwd"]))){
+    if(empty(test_input($_POST["confirmpwd"]))){
         $confirmpwd_err = "Please confirm password.";     
     } else{
-        $confirmpwd = trim($_POST["confirmpwd"]);
+        $confirmpwd = test_input($_POST["confirmpwd"]);
         if(empty($password_err) && ($password != $confirmpwd)){
             $confirmpwd_err = "Password did not match.";
         }
@@ -126,7 +105,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     // Check input errors before inserting in database
-    
     if(empty($username_err) && empty($password_err) && empty($confirmpwd_err) && empty($email_err) && empty($image_err)){
         
         // Prepare an insert statement
@@ -141,15 +119,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_email = $email;
             $param_image = $_FILES["uploadImage"];
-			//print("test456<br>");
-			//print_r($param_image);
             $image_name = upload_img($param_image);
-            //print("test123<br>");
-            //print_r($image_name);
-            //print("<br>");
-            //print($image_name["name"]);
 			
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_email, $image_name["name"]);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_email, $image_name);
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
@@ -167,7 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 
-
+}
 ?>
 
 
@@ -186,23 +158,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 <div class="signup-item">
                     <label for="username">Username </label>
-                    <input type="username" name="username" class="form-control" placeholder="Username">
+                    <input type="username" name="username" class="form-control" value="<?php echo $username; ?>" placeholder="Username">
                 </div>
             
                 <div class="signup-item">
-                    <label>E-mail</label>
-                    <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-                    <span class=""><?php echo $email_err; ?></span> 
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" value="<?php echo $email; ?>"  placeholder="Email">
+                    
                 </div>
 
                 <div class="signup-item">
                     <label for="password">Password <br></label>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder="Password">
                 </div>
 
                 <div class="signup-item">
                     <label for="confirmpwd">Confirm password </label>
-                    <input type="password" name="confirmpwd" class="form-control" placeholder="Confirm password">
+                    <input type="password" name="confirmpwd" class="form-control" value="<?php echo $confirmpwd; ?>" placeholder="Confirm password">
                 </div>
                 
                 <div class="signup-item">
@@ -214,11 +186,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div>UpProfileImageimage/jpg, image/jpeg, image/png*Upload file is image type only</div>
 
                 </div>
-                <br>
-                <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb"></div>
-                <br>
-                <div>
+                <div  class="signup-item">
+                    
+                    <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb" ></div>
+                    <br>
+                </div>
+                
 
+                <div>
                     <input type="submit" class="btn btn-primary" value="Submit">
                     <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                 </div>
@@ -239,23 +214,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo $confirmpwd_err . "<br>";
         }
 
-        /*
-                if(isset($_GET["error"])){
-                if($_GET["error"] == "passwordmismatch"){
-                    echo "<p>Password mismatch!</p>";
-                }
-                else if($_GET["error"] == "stmtfailed"){
-                    echo "<p>Something went wrong, try again -_-</p>";
-                }
-                else if($_GET["error"] == "usernametaken"){
-                    echo "<p>Username was taken</p>";
-                }
-                else if($_GET["error"] == "none"){
-                    echo "<p>Success, you have signed up!</p>";
-                }
-            }
-            */
-        ?>
+    ?>
     </section>
     </div>
 
