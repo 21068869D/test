@@ -1,0 +1,4 @@
+1. hash picture
+2. payment system
+3. list all product
+4. 
