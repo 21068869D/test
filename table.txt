@@ -1,18 +1,19 @@
-CREATE TABLE users(
+CREATE TABLE user(
     id INT(100) AUTO_INCREMENT NOT NULL,
     username VARCHAR(40) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     profile_image VARCHAR(255) NOT NULL,
+    ETH INT(100) NOT NULL,
     UNIQUE (username),
-    PRIMARY KEY (id,username)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE nftimage(
     nftid INT(100) AUTO_INCREMENT NOT NULL,
     hash_image VARCHAR(255) NOT NULL,
     owner VARCHAR(40) NOT NULL,
-    price VARCHAR(40) NOT NULL,
+    price INT(100) NOT NULL,
     image VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     UNIQUE (hash_image),

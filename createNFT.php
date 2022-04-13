@@ -43,7 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $param_image = $_FILES["nftimage"];
 
         
-        $verify=hash("sha256",$_FILES["nftimage"]["tmp_name"]);//hash function not done?????????????
+        $verify=hash_file("sha256",$_FILES["nftimage"]['tmp_name']);//hash function not done????????????? trytry??
+        //echo"<p>".$verify."</p>";
         // Prepare a select statement
         $sql = "SELECT hash_image FROM nftimage WHERE hash_image = ?";
 

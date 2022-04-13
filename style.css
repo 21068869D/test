@@ -38,6 +38,7 @@ nav a{
 }
 nav a:hover{
     color: #000;
+    text-decoration: none;
 }
 nav a::before{
     content: '';
@@ -268,22 +269,28 @@ body, html {
 
 .card-c{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
   .card{
     background: white;
-    width: 220px;
+    width: 300px;
     height: 400px;
-    margin: 20px;
-    padding: 20px;
+    margin: 30px;
+    padding: 0px;
     border-radius: 15px;
+    border: 0px;
 }
 
 .card-image{
     background-color: aqua;
     height: 300px;
+    max-width: 100%;
+    max-height: 100%;
     margin-bottom: 15px;
     background-size: cover;
+    border-radius: 15px 15px 0 0;
 }
 
 .card h2{
@@ -296,6 +303,8 @@ body, html {
     padding: 15px 20px;
     text-align: center;
     margin: 20px 50px;
+    border-radius: 15px;
+    text-decoration: none;
 }
 
 .card:hover{
@@ -304,9 +313,47 @@ body, html {
     cursor: pointer;
     transform: scale(1.03);
     transition: all 0.5s ease;
+    text-decoration: none;
 }
 
 /*card styling end*/
+/*detailnft*/
+.detailnft{
+    background: white;
+    width: 100%;
+    height: 100%;
+    margin: 30px;
+    padding: 0px;
+    border-radius: 15px;
+    border: 0px;
+}
+.detailnft-image{
+    /* (A) FIXED DIMENSIONS */
+    width: 100%; height: 600px;
+    overflow: auto;
+ 
+    /* (B) BACKGROUND IMAGE */
+    
+    background-position: center;
+    background-size: cover; /* contain | cover | auto */
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* fixed | scroll | local */
 
 
-.g-recaptcha div { margin-left: auto; margin-right: auto;}
+
+    max-width: 100%;
+    
+    max-height: 100%;
+    margin-bottom: 15px;
+    
+    border-radius: 15px 15px 0 0;
+}
+
+.detailnft a{
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    margin: 20px 50px;
+    border-radius: 15px;
+}

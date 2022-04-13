@@ -1,4 +1,4 @@
-1. hash picture
+1. hash picture----done
 2. payment system
-3. list all product
+3. list all product ---done
 4. 

@@ -96,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <h2>Login</h2>
                 <p>Please fill in your credentials to login.</p>
 
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="login-item">
                         <label>Username</label>
                         <input type="text" name="username" class="form-control" placeholder="Username">
@@ -122,19 +122,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <br><br>
                         </div>
                         <input type="submit" class="login-btn" value="Login">
-                    </div>
-
-                    <div class="notroboot-item">
-                        <div>
-                            <?php
-                           
-                            ?>
-
-
-
-                        
-                           
-                        </div>
                     </div>
 
                     <p>Haven’t register yet?<br><a href="register.php">Register your account</a></p>

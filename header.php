@@ -24,10 +24,10 @@ include 'inc/config.php';
                     <ul>
                         
                         <li><a href='index.php'>Home</a></li>
-                        <li><a href="#">Browse</a></li>
+                        <li><a href='allproduct.php'>Browse</a></li>
                         <li><a href='about.php'>About</a></li>
                         <?php if(isset($_SESSION["username"])){?>
-                            <li><a href='myproduct.php'>Your NFT</a></li>
+                            <li><a href='myproduct.php'>My NFT</a></li>
                             <li><a href='createNFT.php'>Create</a></li>
                             <li><a href='inc/logout.inc.php'>Logout</a></li>
                         <?php }
