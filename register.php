@@ -1,4 +1,6 @@
 <?php
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
 
 // Include config file
@@ -9,14 +11,17 @@ require_once 'inc/functions.inc.php';
 // Define variables and initialize with empty values
 $username = $password = $confirmpwd = $email = $image = "";
 $username_err = $password_err = $confirmpwd_err = $email_err = $image_err = "";
-
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    exit;
+}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(test_input($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9]+$/', test_input($_POST["username"]))){
+    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', test_input($_POST["username"]))){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
@@ -48,6 +53,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     
     $validation = empty($image_err);
+
+
+
+
+   
+
+
+
+
 
     // Validate email
     if(empty(test_input($_POST["email"]))){
@@ -84,11 +98,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    // Validate password
+    /* // Validate password
     if(empty(test_input($_POST["password"]))){
         $password_err = "Please enter a password.";     
     } elseif(strlen(test_input($_POST["password"])) < 2){//要改翻6
         $password_err = "Password must have at least 6 characters.";
+    } else{
+        $password = test_input($_POST["password"]);
+    }
+    
+    // Validate confirm password
+        $confirmpwd_err = "Please confirm password.";     
+    } else{
+        $confirmpwd = test_input($_POST["confirmpwd"]);
+        if(empty($password_err) && ($password != $confirmpwd)){
+            $confirmpwd_err = "Password did not match.";
+        }
+    } */
+
+    $uppercase = preg_match('@[A-Z]@', test_input($_POST["password"]));
+    $lowercase = preg_match('@[a-z]@', test_input($_POST["password"]));
+    $number    = preg_match('@[0-9]@', test_input($_POST["password"]));
+    $specialChars = preg_match('@[^\w]@', test_input($_POST["password"]));
+
+    // Validate password
+    if(empty(test_input($_POST["password"]))){
+        $password_err = "Please enter a password.";     
+    } elseif(strlen(test_input($_POST["password"])) < 2){//要改翻8
+        $password_err = "Password must have atleast 8 characters.";
+	} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', test_input($_POST["password"]))){
+        $password_err = "Password must be more than 8 characters and must contain numbers, uppercase and lowercase letters and special characters";
     } else{
         $password = test_input($_POST["password"]);
     }
@@ -102,6 +141,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirmpwd_err = "Password did not match.";
         }
     }
+
+
+
+
+
+
+
+
+
 
 
     // Check input errors before inserting in database

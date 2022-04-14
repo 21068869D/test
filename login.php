@@ -1,4 +1,6 @@
 <?php
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -91,7 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <body style="background-color: rgb(32, 34, 37);">
         <div class="parallax-3">
-            <div class="space"></div>
+            
             <section  class="loginform">
                 <h2>Login</h2>
                 <p>Please fill in your credentials to login.</p>

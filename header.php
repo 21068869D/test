@@ -1,10 +1,14 @@
 <?php
+if(!defined('Myheader')){
+    exit('Access denied');
+}
 session_start();
 include 'inc/config.php';
+
 ?>
 
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
     <head>
         <title>Buy NFTs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +17,7 @@ include 'inc/config.php';
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <link rel="stylesheet" href="style.css" type="text/css">
-
+        <script src="disprtsctr.js"></script>
 
     </head>
     <body style="background-color: rgb(32, 34, 37);">
@@ -24,9 +28,9 @@ include 'inc/config.php';
                     <ul>
                         
                         <li><a href='index.php'>Home</a></li>
-                        <li><a href='allproduct.php'>Browse</a></li>
                         <li><a href='about.php'>About</a></li>
                         <?php if(isset($_SESSION["username"])){?>
+                            <li><a href='allproduct.php'>Browse</a></li>
                             <li><a href='myproduct.php'>My NFT</a></li>
                             <li><a href='createNFT.php'>Create</a></li>
                             <li><a href='inc/logout.inc.php'>Logout</a></li>

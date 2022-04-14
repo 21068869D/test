@@ -1,6 +1,12 @@
 <?php
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
 require_once 'inc/functions.inc.php';
+if (!isset($_SESSION["loggedin"]) || ($_SESSION["loggedin"] !== true)) {
+    header("location: login.php");
+    exit;
+}
 ?>
 
 <div class="wrapper">

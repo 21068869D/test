@@ -1,10 +1,15 @@
 <?php
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
 require_once 'inc/functions.inc.php';
 
 //echo $_SESSION['username'];
 $password_err = $password = "";
-
+if (!isset($_SESSION["loggedin"]) || ($_SESSION["loggedin"] !== true)) {
+    header("location: login.php");
+    exit;
+}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     

@@ -1,4 +1,6 @@
 <?php 
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
 require_once 'inc/functions.inc.php';
 ?>

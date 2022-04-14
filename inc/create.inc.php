@@ -45,25 +45,26 @@ function upload_temp_img($nft_image){
     $nftImageName = $nft_image["name"];
     $target_dir = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/temp/";   //The path only for alex
     $move_file = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/temp/" . basename($nftImageName); //The path only for alex
-    $target_file = "temp/".basename($nftImageName);
+    $target_file2 = "temp/".basename($nftImageName);
     
 	if(is_writable($target_dir)){
 		move_uploaded_file($nft_image["tmp_name"],$move_file);
-		return $target_file;
+		return $target_file2;
 	}else
     {
         return "The directory cannot write.";
     }
 }
+
 function upload_img($nft_image){
     
     $nftImageName = time().'-'.$nft_image["name"];
     $target_dir = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/nft/";   //The path only for alex
     $move_file = $_SERVER['DOCUMENT_ROOT']."/3334gpproject/test/nft/" . basename($nftImageName); //The path only for alex
-    $target_file = "nft/".basename($nftImageName);
+    $target_file2 = "nft/".basename($nftImageName);
 	if(is_writable($target_dir)){
 		move_uploaded_file($nft_image["tmp_name"],$move_file);
-		return $target_file;
+		return $target_file2;
 	}else
     {
         return "The directory cannot write.";

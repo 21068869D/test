@@ -1,3 +1,8 @@
+        <?php
+        if(!defined('Myfooter')){
+            exit('Access denied');
+        }
+        ?>
         <footer class="footer">
             <div class="social">
                 <a href="#"><i class="fab fa-facebook"></i></a>

@@ -1,5 +1,8 @@
 <?php
+define('Myheader', TRUE);
+define('Myfooter', TRUE);
 include_once 'header.php';
+
 
 
 $sql = "SELECT profile_image FROM user WHERE username = ?";
@@ -23,6 +26,7 @@ if ($stmt = mysqli_prepare($link, $sql)) {
 }
 
 ?>
+
 <div class="img1"></div>
 
 <div style="height:1000px;background-color:blue;font-size:36px">
@@ -32,14 +36,10 @@ In this website,you can buy or sell the NFT art.
 <div class="img2"></div>
 
 <div style="height:1000px;background-color:yellow;font-size:36px">
-You can using any payment method for buy and sell the NFT art.
+You can using ETH for buy and sell the NFT art in this website.
 </div>
 
 <div class="img3"></div>
-
-<div style="height:50px;background-color:grey;font-size:36px">
-</div>
-
 
 <?php
 include_once 'footer.php';

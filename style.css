@@ -158,6 +158,46 @@ nav a:hover::before{
     border: 1px solid rgb(32, 129, 226);
 }
 
+.imageform{
+    margin-top: 50px;
+    width: 450px;
+    height: max-content;
+    background: rgba(83, 82, 82, 0.7);
+    padding: 4rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    border-radius: 10px;
+}
+.imageform h2{
+    font-size: 35px;
+    padding-bottom: 1rem;
+}
+.imageform p{
+    font-size: 20px;
+
+}
+
+.imageform a{
+    text-decoration: none;
+}
+.imageform a:hover{
+    color: rgb(229, 232, 235);
+}
+
+.image-item{
+    padding: 10px;
+}
+.image-btn{
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+}
+
 .loginform{
     margin-top: 50px;
     width: 500px;
