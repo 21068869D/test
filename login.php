@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     <div class="login-item">
                         <br>
-                            <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb" style="margin-left: 10px" ></div>
+                            <div class="g-recaptcha" data-sitekey="6LcjnHYfAAAAAAfCp_b518ZzuFQz11qkNLZ8EcC5" style="margin-left: 10px" ></div>
                         <span class="invalid-feedback"></span>
                         <br>
                     </div>

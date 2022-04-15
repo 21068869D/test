@@ -236,7 +236,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
                 <div  class="signup-item">
                     
-                    <div class="g-recaptcha" data-sitekey="6LfADE4fAAAAAMksGMbGSHicRXf-A1CceGM2srtb" ></div>
+                    <div class="g-recaptcha" data-sitekey="6LcjnHYfAAAAAAfCp_b518ZzuFQz11qkNLZ8EcC5" ></div>
                     <br>
                 </div>
                 
