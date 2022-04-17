@@ -79,11 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_close($stmt);
     }
 
-
-
-
-
-
     // Check input errors before inserting in database
     if (empty($imagetitle_err) && empty($price_err) && empty($image_err)) {
 
