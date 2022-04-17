@@ -1,4 +1,4 @@
-<?php //half
+<?php 
 
 function test_input($data) {
     $data = trim($data);
@@ -84,7 +84,7 @@ function createUser($conn,$username,$email,$pwd,$target_file){
     exit();
 }
 
-function createNFTRecorc($conn,$verify,$useruid,$price,$target_file,$imagetitle){//half
+function createNFTRecorc($conn,$verify,$useruid,$price,$target_file,$imagetitle){
     $sql = "INSERT INTO nftimage (hash_image, owner, price, image, title) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
