@@ -54,15 +54,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $validation = empty($image_err);
 
-
-
-
-   
-
-
-
-
-
     // Validate email
     if(empty(test_input($_POST["email"]))){
         $email_err = "Please enter a email.";
@@ -98,24 +89,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    /* // Validate password
-    if(empty(test_input($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(test_input($_POST["password"])) < 2){//要改翻6
-        $password_err = "Password must have at least 6 characters.";
-    } else{
-        $password = test_input($_POST["password"]);
-    }
-    
-    // Validate confirm password
-        $confirmpwd_err = "Please confirm password.";     
-    } else{
-        $confirmpwd = test_input($_POST["confirmpwd"]);
-        if(empty($password_err) && ($password != $confirmpwd)){
-            $confirmpwd_err = "Password did not match.";
-        }
-    } */
-
     $uppercase = preg_match('@[A-Z]@', test_input($_POST["password"]));
     $lowercase = preg_match('@[a-z]@', test_input($_POST["password"]));
     $number    = preg_match('@[0-9]@', test_input($_POST["password"]));
@@ -141,16 +114,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirmpwd_err = "Password did not match.";
         }
     }
-
-
-
-
-
-
-
-
-
-
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirmpwd_err) && empty($email_err) && empty($image_err)){

@@ -5,23 +5,7 @@ include_once 'header.php';
 
 
 echo "<div class='parallax-4'>";
-
-/*if(isset($_GET["id"])){
-    $id = $_GET["id"];
-    $sql = "SELECT * FROM image where Id = '" . $id . "';";
-    $query = mysqli_query($conn, $sql);
-    $_SESSION['imageid'] = $id;
-    foreach($query as $q){?>
-    <div class="titlebox">
-        <h1><?php echo $q['title'] ?></h1>
-        <p><br>Salary: <?php echo $q['price']?>
-        <p><br><?php echo "<img src=\"",$q['path'],"\""?></p>
-        
-
-        <button class="btn-primary"><a href="delete.php">Delete</a></button>
-        <?php  }}
-
-        </div>*/ 
+ 
         if(isset($_SESSION["username"])){
 
             $sql = "SELECT * FROM nftimage where nftid = ?;";
@@ -55,9 +39,7 @@ echo "<div class='parallax-4'>";
                     echo "Oops! Something went wrong. Please try again later.";
                 }
             }
-            /*$query = mysqli_query($link, $sql);
-            echo "<h1>Welcome to owner page, ".$uid."</h1><br>";
-            echo " <div class='text-center'><a href='create.php'>+ Sell an NFT </a><br><br>Your NFTs</div><div class='space'></div>";*/
+            
         }
         ?>
 

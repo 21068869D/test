@@ -48,9 +48,7 @@ if (!isset($_SESSION["loggedin"]) || ($_SESSION["loggedin"] !== true)) {
                     echo "Oops! Something went wrong. Please try again later.";
                 }
             }
-            /*$query = mysqli_query($link, $sql);
-            echo "<h1>Welcome to owner page, ".$uid."</h1><br>";
-            echo " <div class='text-center'><a href='create.php'>+ Sell an NFT </a><br><br>Your NFTs</div><div class='space'></div>";*/
+           
         }?>
     </section>
     </div>
