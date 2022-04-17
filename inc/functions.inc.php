@@ -130,23 +130,6 @@ function loginuser($conn,$username,$pwd){
     }
 }
 
-
-
-function createJob($conn,$title,$salary,$requirement,$duty,$uid){
-    $sql = "INSERT INTO job (jobTitle, salary, jobRequirement, jobDuty, userUid) VALUES (?,?,?,?,?);";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../companyindex.php?error=stmtfailed");
-        exit();
-    }
-
-    mysqli_stmt_bind_param($stmt,"sssss",$title,$salary,$requirement,$duty,$uid);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../companyindex.php?error=none");
-    exit();
-}
-
 function createApplcation($conn,$title,$salary,$requirement,$duty,$uid){
     $sql = "INSERT INTO application (jobTitle, salary, jobRequirement, jobDuty, userUid) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
