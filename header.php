@@ -33,6 +33,7 @@ include 'inc/config.php';
                             <li><a href='allproduct.php'>Browse</a></li>
                             <li><a href='myproduct.php'>My NFT</a></li>
                             <li><a href='createNFT.php'>Create</a></li>
+                            <li><a href='profile.php'>Profile</a></li>
                             <li><a href='inc/logout.inc.php'>Logout</a></li>
                         <?php }
                         else{?>

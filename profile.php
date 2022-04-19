@@ -3,11 +3,11 @@ define('Myheader', TRUE);
 define('Myfooter', TRUE);
 include_once 'header.php';
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
+/* // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
     exit;
-} 
+}  */
 
 
 // Define variables and initialize with empty values
@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <body style="background-color: rgb(32, 34, 37);">
 
-    <div style="height: 100vh;  width: 100%; background-color:#39ac37">
+    <div style="height: 100vh;  width: 100%; background-color: rgb(32, 34, 37);">
 
         <div style="background-color: white; width: 800px; height: 600px; margin: 0px auto; padding: 20px;  border-radius: 10px">
             <div class="profilediv">
@@ -109,14 +109,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     <div class="reformdiv">
                                         <label for="" style="">Username: </label>
                                         <input class="reformdivinput" type="text" name="username" value="<?php echo $row['username'];?>" readonly><br>
-                                        <label for="" style="">Password: </label>
-                                        <input class="reformdivinput" type="password" name="password" value="<?php echo $row['password'];?>" readonly>
-                                        <br>
                                         <label for="" style="">Email: </label>
                                         <input class="reformdivinput" type="email" name="email" value="<?php echo $row['email'];?>" readonly>
                                         <br>
-                                        <label for="" style="">HKD: </label>
-                                        <input class="reformdivinput" type="text" name="password" value="<?php echo $row['HKD'];?>" readonly>
+                                        <label for="" style="">ETH: </label>
+                                        <input class="reformdivinput" type="text" name="password" value="<?php echo $row['ETH'];?>" readonly>
                                         <br>
                                         <p>If you want to add value,you can email alex@test.com</p>
                                         </div>
