@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <div style="background-color: white; width: 800px; height: 600px; margin: 0px auto; padding: 20px;  border-radius: 10px">
             <div class="profilediv">
-                <h1 style="color: #39ac37;">My Profile</h1>
+                <h1 style="color: rgb(32, 34, 37);">My Profile</h1>
                 <h2 class="">Your can view your account information in here.</h2>
             </div>
             <br><br>
@@ -139,43 +139,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     </div>
-        <div class="parallax-3">
-            
-            <section  class="loginform">
-                <h2>Login</h2>
-                <p>Please fill in your credentials to login.</p>
-
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <div class="login-item">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="Username">
-                        <span class="invalid-feedback"></span>
-                    </div>
-                    <div class="login-item">
-                        <label>Password</label>
-                        <input type="password" name="password" class="form-control"  placeholder="Password">
-                        <span class="invalid-feedback"></span>
-                    </div>
-
-                    <div class="login-item">
-                        <br>
-                            <div class="g-recaptcha" data-sitekey="6LcjnHYfAAAAAAfCp_b518ZzuFQz11qkNLZ8EcC5" style="margin-left: 10px" ></div>
-                        <span class="invalid-feedback"></span>
-                        <br>
-                    </div>
-
-                    <div class="login-item">
-                        <div>
-                            <input type="checkbox" value="Remember me" name="remember_me_checkbox" />
-                            <label for="remember_me_checkbox">Remember Me</label>
-                            <br><br>
-                        </div>
-                        <input type="submit" class="login-btn" value="Login">
-                    </div>
-
-                    <p>Haven’t register yet?<br><a href="register.php">Register your account</a></p>
-                </form>
-            </section>
-            
-        </div>
 <?php include_once 'footer.php'; ?>
